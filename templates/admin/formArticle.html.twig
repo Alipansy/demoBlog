@@ -1,0 +1,42 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Article{% endblock %}
+
+
+{% block body %}
+    
+
+<h1 class="text-center my-3">
+{% if editMode %}
+Modification d'un article
+{% else %}
+Ajout d'un article
+{% endif %}
+    </h1>
+
+<div class="container">
+{{form_start(form, {
+    attr: {
+        novalidate: 'novalidate'
+    }
+})}}
+{{form_row(form.title, {
+    label: 'titre'
+})}}
+{{form_row(form.category, {
+    label: 'catégorie'
+})}}
+{{form_row(form.content, {
+    attr: {
+        placeholder: "contenu del'article"
+    }
+   
+})}}
+{{form_row(form.image)}}
+<button type="submit" class="btn btn-secondary">Enregistrer</button>
+
+
+{{form_end(form)}}</div>
+
+
+{% endblock %}
